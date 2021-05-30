@@ -10,7 +10,7 @@ const { ObjectId } = require("bson");
 const moment = require("moment");
 const authenticateJWT = require("./auth").authenticateJWT;
 const app = express();
-const port = 8080;
+const port = 8080 || process.env.PORT;
 
 app.use(express.static(path.join(__dirname, "build")));
 app.use(cors());
