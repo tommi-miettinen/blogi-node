@@ -165,7 +165,7 @@ db.initDb((err, db) => {
     console.log(err);
   } else {
     app.listen(process.env.PORT || 8080, () =>
-      console.log(`Server started on port ${port}`)
+      console.log(`Server started on port ${process.env.PORT || 8080}`)
     );
   }
 });
