@@ -10,7 +10,6 @@ const { ObjectId } = require("bson");
 const moment = require("moment");
 const authenticateJWT = require("./auth").authenticateJWT;
 const app = express();
-const port = 8080 || process.env.PORT;
 
 app.use(express.static(path.join(__dirname, "build")));
 app.use(cors());
@@ -165,6 +164,8 @@ db.initDb((err, db) => {
   if (err) {
     console.log(err);
   } else {
-    app.listen(port, () => console.log(`Server started on port ${port}`));
+    app.listen(process.env.PORT || 8080, () =>
+      console.log(`Server started on port ${port}`)
+    );
   }
 });
