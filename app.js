@@ -19,7 +19,8 @@ app.use(bodyParser.json());
 app.get("/api/posts", async (req, res) => {
   try {
     const data = await db.getDb().db().collection("Posts").find({}).toArray();
-    res.send(data);
+
+    res.send(data.reverse());
   } catch (err) {
     res.status(500).send({ error: "kävi kehnosti" });
   }
